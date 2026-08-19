@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ckb" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -264,20 +264,22 @@
             width: 100%;
             display: flex;
             align-items: center;
-            padding: 0 5px;
+            padding: 0 10px;
+            margin-top: 5px;
         }
 
         /* Horizontal Scroll Showcase Section */
         .showcase-scroll-container {
             width: 100%;
             display: flex;
-            gap: 14px;
+            gap: 12px;
             overflow-x: auto;
-            padding-bottom: 10px;
+            padding: 5px 0 15px 0;
             scroll-behavior: smooth;
             scroll-snap-type: x mandatory;
             scrollbar-width: thin;
             scrollbar-color: rgba(230, 0, 35, 0.6) rgba(255, 255, 255, 0.05);
+            direction: ltr;
         }
 
         .showcase-scroll-container::-webkit-scrollbar {
@@ -295,8 +297,8 @@
         }
 
         .media-card {
-            min-width: 220px;
-            height: 280px;
+            min-width: 180px;
+            height: 240px;
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: 16px;
@@ -328,8 +330,8 @@
             background: rgba(0, 0, 0, 0.85);
             color: #ffffff;
             border: 1px solid rgba(230, 0, 35, 0.6);
-            width: 40px;
-            height: 40px;
+            width: 35px;
+            height: 35px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -346,14 +348,12 @@
             transform: translateY(-50%) scale(1.1);
         }
 
-        /* سەهمی ڕاست */
         .scroll-right {
-            right: -12px;
+            right: -5px;
         }
 
-        /* سەهمی چەپ */
         .scroll-left {
-            left: -12px;
+            left: -5px;
         }
 
         /* Footer */
@@ -446,15 +446,13 @@
             <span>نموونەی کارەکانمان</span>
         </div>
 
-        <!-- Horizontal Scroll Container with Corrected Arrow Directions -->
+        <!-- Showcase Wrapper with Arrows -->
         <div class="showcase-wrapper">
-            <!-- سەهوی ڕاست -->
-            <button class="scroll-arrow scroll-right" onclick="scrollGallery(250)">
-                <i class="fa-solid fa-chevron-right"></i>
+            <button class="scroll-arrow scroll-left" onclick="scrollGallery(-250)">
+                <i class="fa-solid fa-chevron-left"></i>
             </button>
 
             <div class="showcase-scroll-container" id="galleryContainer">
-                <!-- 57 Images (.jpg format, named 1 to 57) -->
                 <script>
                     for (let i = 1; i <= 57; i++) {
                         document.write(`
@@ -466,9 +464,8 @@
                 </script>
             </div>
 
-            <!-- سەهوی چەپ -->
-            <button class="scroll-arrow scroll-left" onclick="scrollGallery(-250)">
-                <i class="fa-solid fa-chevron-left"></i>
+            <button class="scroll-arrow scroll-right" onclick="scrollGallery(250)">
+                <i class="fa-solid fa-chevron-right"></i>
             </button>
         </div>
 
