@@ -1,0 +1,367 @@
+﻿<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نموونەی کارەکان | Eliza Decor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;600;700;800&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Noto Kufi Arabic', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: #050508;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 25px 15px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Galaxy / Starry Background */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(3px 3px at 20px 30px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(4px 4px at 80px 120px, #e60023, rgba(0,0,0,0)),
+                radial-gradient(3px 3px at 150px 50px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(4px 4px at 220px 200px, #ff4d6d, rgba(0,0,0,0)),
+                radial-gradient(3px 3px at 310px 100px, #ffffff, rgba(0,0,0,0)),
+                radial-gradient(4px 4px at 380px 280px, #e60023, rgba(0,0,0,0)),
+                radial-gradient(3px 3px at 450px 180px, #ffffff, rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 350px 350px;
+            opacity: 0.95;
+            z-index: -2;
+            animation: galaxyTwinkle 12s infinite linear;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 20%, rgba(230, 0, 35, 0.2) 0%, rgba(5, 5, 8, 0.85) 75%);
+            z-index: -1;
+        }
+
+        @keyframes galaxyTwinkle {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-350px); }
+        }
+
+        /* Shooting Stars */
+        .shooting-star {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 120px;
+            height: 2px;
+            background: linear-gradient(-45deg, #ffffff, rgba(230, 0, 35, 1), rgba(0, 0, 0, 0));
+            border-radius: 999px;
+            filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.8));
+            animation: tail 3s ease-in-out infinite, shooting 3s ease-in-out infinite;
+            z-index: -1;
+            opacity: 0;
+        }
+
+        .shooting-star:nth-child(1) { top: 10%; left: 80%; animation-delay: 0s; }
+        .shooting-star:nth-child(2) { top: 25%; left: 60%; animation-delay: 1.8s; }
+        .shooting-star:nth-child(3) { top: 5%; left: 40%; animation-delay: 3.5s; }
+
+        @keyframes tail {
+            0% { width: 0; opacity: 0; }
+            30% { width: 120px; opacity: 1; }
+            100% { width: 0; opacity: 0; }
+        }
+
+        @keyframes shooting {
+            0% { transform: translateX(0) translateY(0) rotate(-45deg); }
+            100% { transform: translateX(-400px) translateY(400px) rotate(-45deg); }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 520px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 1;
+        }
+
+        /* Logo Area */
+        .logo-box {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin-bottom: 12px;
+            border-radius: 50%;
+            padding: 3px;
+            background: linear-gradient(135deg, #e60023, #111, #ffffff);
+            box-shadow: 0 0 25px rgba(230, 0, 35, 0.4);
+            animation: pulseGlow 3s infinite ease-in-out;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(230, 0, 35, 0.4); }
+            50% { box-shadow: 0 0 35px rgba(230, 0, 35, 0.7); }
+        }
+
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            background-color: #000;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            margin-bottom: 4px;
+            color: #ffffff;
+        }
+
+        h1 span {
+            color: #e60023;
+        }
+
+        p.subtitle {
+            font-size: 13px;
+            color: #d1d1d1;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        /* Back Button Style */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 14px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(230, 0, 35, 0.4);
+            border-radius: 16px;
+            color: #ffffff;
+            text-decoration: none;
+            backdrop-filter: blur(12px);
+            font-size: 14.5px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            transition: all 0.2s ease;
+        }
+
+        .back-btn:hover {
+            background: rgba(230, 0, 35, 0.15);
+            border-color: rgba(230, 0, 35, 0.8);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(230, 0, 35, 0.3);
+        }
+
+        /* Section Titles */
+        .section-title {
+            width: 100%;
+            text-align: right;
+            font-size: 14px;
+            color: #e60023;
+            font-weight: 700;
+            margin: 10px 0 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px solid rgba(230, 0, 35, 0.3);
+            padding-bottom: 6px;
+        }
+
+        /* Showcase Wrapper with Arrows */
+        .showcase-wrapper {
+            position: relative;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 5px;
+        }
+
+        /* Horizontal Scroll Showcase Section */
+        .showcase-scroll-container {
+            width: 100%;
+            display: flex;
+            gap: 14px;
+            overflow-x: auto;
+            padding-bottom: 15px;
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(230, 0, 35, 0.6) rgba(255, 255, 255, 0.05);
+        }
+
+        .showcase-scroll-container::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .showcase-scroll-container::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+
+        .showcase-scroll-container::-webkit-scrollbar-thumb {
+            background: rgba(230, 0, 35, 0.6);
+            border-radius: 10px;
+        }
+
+        .media-card {
+            min-width: 240px;
+            height: 320px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+            transition: border-color 0.3s ease, transform 0.3s ease;
+            position: relative;
+            scroll-snap-align: start;
+            flex-shrink: 0;
+        }
+
+        .media-card:hover {
+            border-color: rgba(230, 0, 35, 0.6);
+            transform: translateY(-3px);
+        }
+
+        .media-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Scroll Navigation Arrows */
+        .scroll-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.85);
+            color: #ffffff;
+            border: 1px solid rgba(230, 0, 35, 0.6);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+            transition: background 0.3s ease, transform 0.2s ease, border-color 0.3s ease;
+        }
+
+        .scroll-arrow:hover {
+            background: #e60023;
+            border-color: #ff1a3c;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .scroll-right {
+            right: -12px;
+        }
+
+        .scroll-left {
+            left: -12px;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            width: 100%;
+            font-size: 12px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+
+    <div class="container">
+        <div class="logo-box">
+            <img src="logo.png" alt="Eliza Decor Logo" class="logo-img">
+        </div>
+
+        <h1>ELIZA <span>DECOR</span></h1>
+        <p class="subtitle">گەلەری نموونەی کارە ئەنجامدراوەکان</p>
+
+        <!-- دوگمەی گەڕانەوە بۆ لاپەڕەی سەرەکی -->
+        <a href="index.html" class="back-btn">
+            <i class="fa-solid fa-arrow-right"></i>
+            <span>گەڕانەوە بۆ پەڕەی سەرەکی</span>
+        </a>
+
+        <div class="section-title">
+            <i class="fa-solid fa-images"></i>
+            <span>هەموو کارەکان (٥۷ وێنە)</span>
+        </div>
+
+        <!-- Horizontal Scroll Container for 57 Images -->
+        <div class="showcase-wrapper">
+            <button class="scroll-arrow scroll-right" onclick="scrollGallery(260)">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+
+            <div class="showcase-scroll-container" id="galleryContainer">
+                <!-- جەنەراتۆری JavaScript بۆ ١ تا ٥۷ بە فۆڕماتی jpg -->
+                <script>
+                    for (let i = 1; i <= 57; i++) {
+                        document.write(`
+                            <div class="media-card">
+                                <img src="${i}.jpg" alt="Eliza Decor Work ${i}" loading="lazy">
+                            </div>
+                        `);
+                    }
+                </script>
+            </div>
+
+            <button class="scroll-arrow scroll-left" onclick="scrollGallery(-260)">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+        </div>
+
+        <footer>
+            <p>© ELIZA DECOR - All Rights Reserved</p>
+        </footer>
+    </div>
+
+    <script>
+        function scrollGallery(amount) {
+            const container = document.getElementById('galleryContainer');
+            container.scrollBy({ left: amount, behavior: 'smooth' });
+        }
+    </script>
+
+</body>
+</html>
