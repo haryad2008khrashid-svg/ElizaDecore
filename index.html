@@ -258,104 +258,6 @@
             color: #ffffff;
         }
 
-        /* Showcase Wrapper with Arrows */
-        .showcase-wrapper {
-            position: relative;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            padding: 0 10px;
-            margin-top: 5px;
-        }
-
-        /* Horizontal Scroll Showcase Section */
-        .showcase-scroll-container {
-            width: 100%;
-            display: flex;
-            gap: 12px;
-            overflow-x: auto;
-            padding: 5px 0 15px 0;
-            scroll-behavior: smooth;
-            scroll-snap-type: x mandatory;
-            scrollbar-width: thin;
-            scrollbar-color: rgba(230, 0, 35, 0.6) rgba(255, 255, 255, 0.05);
-            direction: ltr;
-        }
-
-        .showcase-scroll-container::-webkit-scrollbar {
-            height: 6px;
-        }
-
-        .showcase-scroll-container::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-        }
-
-        .showcase-scroll-container::-webkit-scrollbar-thumb {
-            background: rgba(230, 0, 35, 0.6);
-            border-radius: 10px;
-        }
-
-        .media-card {
-            min-width: 180px;
-            height: 240px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
-            transition: border-color 0.3s ease, transform 0.3s ease;
-            position: relative;
-            scroll-snap-align: start;
-            flex-shrink: 0;
-        }
-
-        .media-card:hover {
-            border-color: rgba(230, 0, 35, 0.6);
-            transform: translateY(-3px);
-        }
-
-        .media-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        /* Scroll Navigation Arrows */
-        .scroll-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.85);
-            color: #ffffff;
-            border: 1px solid rgba(230, 0, 35, 0.6);
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 10;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
-            transition: background 0.3s ease, transform 0.2s ease, border-color 0.3s ease;
-        }
-
-        .scroll-arrow:hover {
-            background: #e60023;
-            border-color: #ff1a3c;
-            transform: translateY(-50%) scale(1.1);
-        }
-
-        .scroll-right {
-            right: -5px;
-        }
-
-        .scroll-left {
-            left: -5px;
-        }
-
         /* Footer */
         footer {
             margin-top: 35px;
@@ -439,47 +341,21 @@
                 <i class="fa-solid fa-chevron-left arrow-icon"></i>
             </a>
 
-        </div>
+            <!-- بەستەری نوێ بۆ پەڕەی کارەکان -->
+            <a href="portfolio.html" class="link-card" style="border-color: rgba(230, 0, 35, 0.4);">
+                <div class="link-content">
+                    <i class="fa-solid fa-images link-icon" style="color: #e60023;"></i>
+                    <span class="link-title">نموونەی کارەکان</span>
+                </div>
+                <i class="fa-solid fa-chevron-left arrow-icon"></i>
+            </a>
 
-        <div class="section-title">
-            <i class="fa-solid fa-gem"></i>
-            <span>نموونەی کارەکانمان</span>
-        </div>
-
-        <!-- Showcase Wrapper with Arrows -->
-        <div class="showcase-wrapper">
-            <button class="scroll-arrow scroll-left" onclick="scrollGallery(-250)">
-                <i class="fa-solid fa-chevron-left"></i>
-            </button>
-
-            <div class="showcase-scroll-container" id="galleryContainer">
-                <script>
-                    for (let i = 1; i <= 57; i++) {
-                        document.write(`
-                            <div class="media-card">
-                                <img src="${i}.jpg" alt="Eliza Decor Work ${i}">
-                            </div>
-                        `);
-                    }
-                </script>
-            </div>
-
-            <button class="scroll-arrow scroll-right" onclick="scrollGallery(250)">
-                <i class="fa-solid fa-chevron-right"></i>
-            </button>
         </div>
 
         <footer>
             <p>© ELIZA DECOR - All Rights Reserved</p>
         </footer>
     </div>
-
-    <script>
-        function scrollGallery(amount) {
-            const container = document.getElementById('galleryContainer');
-            container.scrollBy({ left: amount, behavior: 'smooth' });
-        }
-    </script>
 
 </body>
 </html>
